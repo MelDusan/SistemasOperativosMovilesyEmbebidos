@@ -1,0 +1,173 @@
+package com.example.practicahito2some;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView txtCasConfCba;
+    private TextView txtCasSospCba;
+
+    private TextView txtCasConfSta;
+    private TextView txtCasSospSta;
+
+    private TextView txtCasConfOru;
+    private TextView txtCasSospOru;
+
+    private EditText etxCasConf;
+    private EditText etxCasSosp;
+    private EditText etxDepart;
+
+    private EditText etxIngreBusq;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        etxCasConf = (EditText) findViewById(R.id.etxCasosConf);
+        etxCasSosp = (EditText) findViewById(R.id.etxCasosSosp);
+        etxDepart = (EditText) findViewById(R.id.etxDepartamento);
+
+        txtCasConfCba = (TextView) findViewById(R.id.txtCasosConfCbba);
+        txtCasSospCba = (TextView) findViewById(R.id.txtCasosSospCbba);
+
+        txtCasConfSta = (TextView) findViewById(R.id.txtCasosConfSTC);
+        txtCasSospSta = (TextView) findViewById(R.id.txtCasosSospSTC);
+
+        txtCasConfOru = (TextView) findViewById(R.id.txtCasosConfOruro);
+        txtCasSospOru = (TextView) findViewById(R.id.txtCasosSospOruro);
+
+        etxIngreBusq = (EditText) findViewById(R.id.etxIngreBusque);
+
+    }
+
+    public void onClick(View v) {
+
+        String valor1_String = etxCasConf.getText().toString();
+        String valor2_String = etxCasSosp.getText().toString();
+        String valor3_String = etxDepart.getText().toString();
+
+        int valor1_int = Integer.parseInt(valor1_String);
+        int valor2_int = Integer.parseInt(valor2_String);
+
+        String result1 = String.valueOf(valor1_int);
+        String result2 = String.valueOf(valor2_int);
+
+        String posibleNumero1 = etxCasConf.toString();
+        String posibleNumero2 = etxCasSosp.toString();
+        if (valor3_String.intern() == ("cbba")) {
+            txtCasConfCba.setText(result1);
+            txtCasSospCba.setText(result2);
+        } else if (valor3_String.intern() == ("sta")) {
+            txtCasConfSta.setText(result1);
+            txtCasSospSta.setText(result2);
+        } else if (valor3_String.intern() == ("oru")) {
+            txtCasConfOru.setText(result1);
+            txtCasSospOru.setText(result2);
+        }else if ((valor3_String.length() == 0) ||(valor2_String.toString()=="") || (valor1_String.toString()=="")||(valor3_String.toString() !="")){
+            Toast.makeText(this,"Ingrese Departamentos'",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+    public void Calcular(View view){
+        String valor4_String = etxIngreBusq.getText().toString();
+        String valor3_String = etxDepart.getText().toString();
+
+        String CCCstring = txtCasConfCba.getText().toString();
+        int CCCint = Integer.parseInt(CCCstring);
+        String CCSstring = txtCasConfSta.getText().toString();
+        int CCSint = Integer.parseInt(CCSstring);
+        String CCOstring = txtCasConfOru.getText().toString();
+        int CCOint = Integer.parseInt(CCOstring);
+
+        String CSCstring = txtCasSospCba.getText().toString();
+        int CSCint = Integer.parseInt(CSCstring);
+        String CSSstring = txtCasSospSta.getText().toString();
+        int CSSint = Integer.parseInt(CSSstring);
+        String CSOstring = txtCasSospOru.getText().toString();
+        int CSOint = Integer.parseInt(CSOstring);
+
+        if(valor4_String.isEmpty()){
+            Toast.makeText(this,"Ingrese parametro'mayor'",Toast.LENGTH_SHORT).show();
+        }
+        else if (valor4_String.intern()==("mayor")) {
+            if ((CCCint > CCSint) && (CCCint > CCOint) && (CSCint > CSSint) && (CSCint > CSOint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Cochabamba"));
+                intent.putExtra("DatoConf", txtCasConfCba.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Cochabamba"));
+                intent.putExtra("DatoSosp", txtCasSospCba.getText().toString());
+                startActivity(intent);
+            } else if ((CCCint > CCSint) && (CCCint > CCOint) && (CSSint > CSCint) && (CSSint > CSOint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Cochabamba"));
+                intent.putExtra("DatoConf", txtCasConfCba.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Santa Cruz"));
+                intent.putExtra("DatoSosp", txtCasSospSta.getText().toString());
+                startActivity(intent);
+            } else if ((CCCint > CCSint) && (CCCint > CCOint) && (CSOint > CSCint) && (CSOint > CSSint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Cochabamba"));
+                intent.putExtra("DatoConf", txtCasConfCba.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Oruro"));
+                intent.putExtra("DatoSosp", txtCasSospOru.getText().toString());
+                startActivity(intent);
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////
+            else if ((CCSint > CCCint) && (CCSint > CCOint) && (CSSint > CSCint) && (CSSint > CSOint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Santa Cruz"));
+                intent.putExtra("DatoConf", txtCasConfSta.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Santa Cruz"));
+                intent.putExtra("DatoSosp", txtCasSospSta.getText().toString());
+                startActivity(intent);
+            } else if ((CCSint > CCCint) && (CCSint > CCOint) && (CSCint > CSSint) && (CSCint > CSOint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Santa Cruz"));
+                intent.putExtra("DatoConf", txtCasConfSta.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Cochabamba"));
+                intent.putExtra("DatoSosp", txtCasSospCba.getText().toString());
+                startActivity(intent);
+            } else if ((CCSint > CCCint) && (CCSint > CCOint) && (CSOint > CSCint) && (CSOint > CSSint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Santa Cruz"));
+                intent.putExtra("DatoConf", txtCasConfSta.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Oruro"));
+                intent.putExtra("DatoSosp", txtCasSospOru.getText().toString());
+                startActivity(intent);
+            }
+            ////////////////////////////////////////////////////////////////////////////////////////
+            else if ((CCOint > CCCint) && (CCOint > CCSint) && (CSOint > CSCint) && (CSOint > CSSint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Oruro"));
+                intent.putExtra("DatoConf", txtCasConfOru.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Oruro"));
+                intent.putExtra("DatoSosp", txtCasSospOru.getText().toString());
+                startActivity(intent);
+            } else if ((CCOint > CCCint) && (CCOint > CCSint) && (CSCint > CSSint) && (CSCint > CSOint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Oruro"));
+                intent.putExtra("DatoConf", txtCasConfOru.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Cochabamba"));
+                intent.putExtra("DatoSosp", txtCasSospCba.getText().toString());
+                startActivity(intent);
+            } else if ((CCOint > CCCint) && (CCOint > CCSint) && (CSSint > CSCint) && (CSSint > CSOint)) {
+                Intent intent = new Intent(this, ResultadoActivity.class);
+                intent.putExtra("DatoCiudadConf", ("Oruro"));
+                intent.putExtra("DatoConf", txtCasConfOru.getText().toString());
+                intent.putExtra("DatoCiudadSosp", ("Cochabamba"));
+                intent.putExtra("DatoSosp", txtCasSospCba.getText().toString());
+                startActivity(intent);
+            }
+
+        }
+    }
+}
+

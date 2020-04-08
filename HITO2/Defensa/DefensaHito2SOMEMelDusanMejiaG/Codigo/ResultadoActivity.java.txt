@@ -1,0 +1,39 @@
+package com.example.practicahito2some;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class ResultadoActivity extends AppCompatActivity {
+
+    private TextView extCiudad1, etxCiudad2, etxConf, extSosp;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_resultado);
+        extCiudad1 = (TextView) findViewById(R.id.tvxCiudad1);
+        etxConf= (TextView) findViewById(R.id.tvxConfirmados);
+
+        etxCiudad2 = (TextView) findViewById(R.id.tvxCiudad2);
+        extSosp = (TextView) findViewById(R.id.tvxSospechosos);
+        String datoCiudad1 = getIntent().getStringExtra("DatoCiudadConf");
+        String datoCiudad2 = getIntent().getStringExtra("DatoCiudadSosp");
+        String datoConf = getIntent().getStringExtra("DatoConf");
+        String datoSosp = getIntent().getStringExtra("DatoSosp");
+        extCiudad1.setText(datoCiudad1);
+        etxCiudad2.setText(datoCiudad2);
+        etxConf.setText(datoConf);
+        extSosp.setText(datoSosp);
+
+    }
+
+    public void VolverAtras(View view){
+        Intent intent= new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+}

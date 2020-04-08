@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">PracticaHito2SOME</string>
+    <string name="casos_sospechosos1">Casos Sospechosos</string>
+    <string name="casos_confirmados">Casos Confirmados</string>
+    <string name="txtnumero_de_casoscbba">Numero de Casos</string>
+    <string name="txtnumero_de_casosoru">Numero de Casos</string>
+    <string name="oruro">Oruro</string>
+    <string name="santa_cruz">Santa Cruz</string>
+    <string name="casos_sospechosos2">Casos Sospechosos</string>
+    <string name="numero_de_casosSTA">Numero de Casos</string>
+    <string name="casos_confirmandos">Casos Confirmandos</string>
+    <string name="btningresar_busqueda">Ingresar Busqueda</string>
+    <string name="cochabamba">Cochabamba</string>
+    <string name="casos_sospechosos3">Casos Sospechosos</string>
+    <string name="btncalcular">CALCULAR</string>
+    <string name="btnset_values">SET VALUES</string>
+    <string name="numero_de_casoSOSPsCBA">Numero de Casos</string>
+    <string name="numero_de_casossospSTA">Numero de Casos</string>
+    <string name="numero_de_casosConfOruro">Numero de Casos</string>
+    <string name="casos_confirmadosOruConf">Casos Confirmados</string>
+    <string name="etxdepartamento">Departamento</string>
+    <string name="etxconf">Conf</string>
+    <string name="etxsosp">Sosp</string>
+    <string name="ciudad_con_mayores_datos_de_covid_19_confirmado">Ciudad con mayores datos de COVID-19 Confirmado</string>
+    <string name="ciudad_con_mayores_datos_de_covid_19_sospechosos">Ciudad con mayores datos de COVID-19 Sospechosos</string>
+    <string name="btnvolver">Volver</string>
+    <string name="tvxsin_datosc1">Sin Datos</string>
+    <string name="tvxsin_datosc">Sin Datos</string>
+    <string name="tvxsin_datosc2">Sin Datos</string>
+    <string name="tvxsin_datossosp">Sin Datos</string>
+    <string name="txtMiNombre">MEL DUSAN MEJIA GARCIA</string>
+    <string name="txxMyName">MEL DUSAN MEJIA GARCIA</string>
+    <string name="covid192">TODO1</string>
+    <string name="imvCovid191">TODO2</string>
+</resources>
