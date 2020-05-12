@@ -213,11 +213,18 @@ public class CalculadoraCustomActivity extends AppCompatActivity implements View
                     break;
                 case  R.id.btnfibo:
                     numeros[0]=Double.parseDouble(a);
-                    resultado=1;
+                    int t1 = 0;
+                    int t2 = 1;
+                    int c = 0;
+                    int sum = 1;
                     for(int i=0;i<=numeros[0];i++){
-                        resultado=resultado + numeros[0];
+                        c = t1 + t2;
+                        t1 = t2;
+                        t2 = c;
+                        sum = sum + t2;
+                        resultado = t2;
                     }
-                    display.setText(String.valueOf(resultado));
+                    display.setText(String.valueOf(resultado-1));
                     break;
                 case  R.id.btnCloseApp:
                     System.exit(0);
